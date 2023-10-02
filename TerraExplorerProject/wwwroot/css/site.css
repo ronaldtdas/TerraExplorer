@@ -1,0 +1,72 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+footer {
+    text-align: center;
+}
+
+
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: darkgray;
+    padding-top: 2rem;
+}
+
+.logo-wrapper {
+    margin-left: 40px;
+}
+
+    .logo-wrapper img {
+        width: 10rem;
+    }
+
+.hamburger-wrapper {
+    float: right;
+}
+.hamburger-wrapper a{
+    rotate: 90deg;
+}
+
+
+.card-wrapper {
+    margin-left: -1rem;
+}
+
+    .card-wrapper .card {
+        cursor: pointer;
+        float: left;
+        width: 24.9%;
+        border: none;
+        margin-left: .1%;
+    }
+
+        .card-wrapper .card img {
+            height: 150px;
+        }
+
+.enlarged {
+    width: 49.8% !important;
+    margin-left: .2% !important;
+    position: fixed;
+    display: block;
+}

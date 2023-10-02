@@ -1,0 +1,60 @@
+﻿@model TerraExplorerProject.Models.NasaImageDataModel
+@{
+    Layout = "_LayoutIndex";
+    // ViewData["Title"] = " - Terra Explorer";
+}
+<link href="~/css/index.css" rel="stylesheet" />
+
+<div class="row" style="height:50vh">
+    <div class="col-12 d-flex justify-content-center align-items-center logo-wrapper">
+        <img src="~/images/favicon.png" class="logo" />
+        <h1>Terra <br />Explorer</h1>
+    </div>
+</div>
+<div class="row" style="height:30vh">
+
+    <form asp-controller="Home" asp-action="SearchResults" method="post">
+        <div class="input-group mb-3 row d-flex justify-content-center align-items-center">
+            <div class="col-md-5 mb-2">
+                <input type="text" name="param" class="form-control" placeholder="Write Here..." aria-label="Search NASA Images" aria-describedby="search-button" autocomplete="off">
+            </div>
+            <div class="col-md-1 mb-2 d-flex justify-content-center align-items-center">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit" id="search-button">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row" style="height:20vh">
+    <ul>
+        <li><a href="#">Rocks</a></li>
+        <li><a href="#">Gemstones</a></li>
+        <li><a href="#">Minerals</a></li>
+        <li><a href="#">World Map</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Categories</a></li>
+    </ul>
+</div>
+<div class="row card-wrapper">
+    @if (Model != null && Model.Collection != null && Model.Collection.Items != null)
+    {
+        @foreach (var item in Model.Collection.Items)
+        {
+            <div class="card">
+                @if (item.Links != null && item.Links.Any())
+                {
+                    <img src="@item.Links.FirstOrDefault()?.Href" alt="Image" />
+                }
+                <div class="card-body">
+                    <p class="card-text">@item.Data.FirstOrDefault()?.Title</p>
+                    <p class="card-text">@item.Data.FirstOrDefault()?.Description</p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No NASA images found.</p>
+    }
+</div>

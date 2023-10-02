@@ -1,0 +1,36 @@
+﻿body {
+    background-color: darkgray;
+}
+
+.logo {
+    width: 100px;
+}
+
+.logo-wrapper {
+    cursor: pointer;
+}
+
+    .logo-wrapper h1 {
+        line-height: 3rem;
+        font-size: 4.5rem;
+    }
+
+
+ul {
+    list-style-type: none;
+    font-size: x-large;
+}
+
+    ul li {
+        float: left;
+        padding: 20px 55px;
+    }
+
+.card-wrapper {
+    background-color: white;
+}
+
+#navbar {
+    display: none;
+    border-bottom: 2px solid black;
+}

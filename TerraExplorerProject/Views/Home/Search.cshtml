@@ -1,0 +1,64 @@
+﻿@model TerraExplorerProject.Models.NasaImageDataModel
+
+@{
+    ViewData["Title"] = "NASA Images";
+}
+<style>
+    .image-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 10px;
+    }
+
+        .image-list img {
+            width: 100%;
+            height: auto;
+        }
+
+            .image-list img:hover {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+
+</style>
+<script>
+    // Initialize the lightbox
+    Fancybox.init();
+
+    // Add click events to the images
+    document.querySelectorAll('.image-list img').forEach(image => {
+      image.addEventListener('click', () => {
+        Fancybox.open(image);
+      });
+    });
+</script>
+<h2>NASA Images</h2>
+
+<form method="post">
+    <div class="input-group mb-3">
+        <input type="text" name="param" class="form-control" placeholder="Search NASA Images" aria-label="Search NASA Images" aria-describedby="search-button" autocomplete="off" value="@ViewBag.Param"> 
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
+        </div>
+    </div>
+</form>
+@if (Model != null && Model.Collection != null && Model.Collection.Items != null)
+{
+    <ul>
+        @foreach (var item in Model.Collection.Items)
+        {
+            <li>
+                <h3>@item.Data.FirstOrDefault()?.Title</h3>
+                <p>@item.Data.FirstOrDefault()?.Description</p>
+                @if (item.Links != null && item.Links.Any())
+                {
+                    <img src="@item.Links.FirstOrDefault()?.Href" alt="NASA Image" />
+                }
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No NASA images found.</p>
+}

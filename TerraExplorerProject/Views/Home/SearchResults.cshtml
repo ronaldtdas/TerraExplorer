@@ -1,0 +1,100 @@
+﻿@model TerraExplorerProject.Models.NasaImageDataModel
+<style>
+</style>
+
+<div class="row card-wrapper">
+    @if (Model != null && Model.Collection != null && Model.Collection.Items != null)
+    {
+        @foreach (var item in Model.Collection.Items)
+        {
+            <div class="card" data-bs-toggle="modal" data-bs-target="#viewModal" onclick="btnViewClick(@item.ItemId)">
+                @if (item.Links != null && item.Links.Any())
+                {
+                    <img src="@item.Links.FirstOrDefault()?.Href" alt="Image" />
+                }
+                <div class="card-body">
+                    <p class="card-text">@item.Data.FirstOrDefault()?.Title</p>
+                    <p class="card-text">@item.Data.FirstOrDefault()?.Description</p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No NASA images found.</p>
+    }
+</div>
+
+<!-- View Detail modal-->
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Info</h5>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="form-label fw-bold">Title:</label>
+                        <label class="form-label" id="lblTitle"></label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label fw-bold">Created Date:</label>
+                        <label class="form-label" id="lblDateCreated"></label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label fw-bold">Media Type:</label>
+                        <label class="form-label" id="lblMediaType"></label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label fw-bold">Description508:</label>
+                        <label class="form-label" id="lblDescription508"></label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label fw-bold">Description:</label>
+                        <label class="form-label" id="lblDescription"></label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label fw-bold">Secondary Creator:</label>
+                        <label class="form-label" id="lblSecondaryCreator"></label>
+                    </div>
+                </div>
+
+                @*Detail-Table*@
+                <div class="row">
+                    <img id="modalImage" src="" alt="#" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="button" data-bs-dismiss="modal">View Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* View Modal *@
+<script>
+    function btnViewClick(findId) {
+        var items = @Json.Serialize(Model.Collection.Items);
+
+        var item = items.find(function (element) {
+            return element.itemId === findId;
+        });
+
+        if (item) {
+            console.log(item.data[0].title); // Print the 'title' property of the 'data' object
+            document.getElementById('lblTitle').innerText = item.data[0].title;
+            document.getElementById('lblDateCreated').innerText = item.data[0].dateCreated;
+            document.getElementById('lblMediaType').innerText = item.data[0].mediaType;
+            document.getElementById('lblDescription508').innerText = item.data[0].description508;
+            document.getElementById('lblDescription').innerText = item.data[0].description;
+            document.getElementById('lblSecondaryCreator').innerText = item.data[0].secondaryCreator;
+            document.getElementById('modalImage').src = item.links[0].href;
+            $("#myImage").attr("src", "new-image.jpg");
+        } else {
+            console.log("Item not found");
+        }
+    }
+</script>
