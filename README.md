@@ -22,20 +22,17 @@ Terra Explorer is a groundbreaking web platform that revolutionizes geology rese
 ## How It Works
 
 1. Visit the [Terra Explorer Live Site](https://terraexplorer.ideahubbd.com/).
-2. Sign in or create an account to access the platform's full features.
-3. Explore Earth's geology using the easy-to-use interface.
-4. Access a wealth of NASA's data, including metadata and visual information.
-5. Analyze, research, and make discoveries without the constraints of fieldwork.
+2. Explore Earth's geology using the easy-to-use interface.
+3. Access a wealth of NASA's data, including metadata and visual information.
+4. Analyze, research, and make discoveries without the constraints of fieldwork.
 
 ## Tech Stack
 
-- Cloud Computing
-- AWS
-- Scripting
-- Python
 - .NET
 - C#
-- Database Management
+- Cloud Computing
+- AWS
+- Docker
 
 ## Installation
 
@@ -47,7 +44,7 @@ We welcome contributions and collaboration from the community. If you're interes
 
 ## Support and Contact
 
-If you have any questions, encounter issues, or want to get in touch with the Terra Explorer team, please contact us at [contact@terraexplorer.ideahubbd.com](mailto:contact@terraexplorer.ideahubbd.com).
+If you have any questions, encounter issues, or want to get in touch with the Terra Explorer team, please contact us at [info@ideahubbd.com](mailto:info@ideahubbd.com).
 
 ## License
 
