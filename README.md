@@ -1,7 +1,7 @@
 
 # Terra Explorer
 
-![Terra Explorer Logo](link_to_logo.png)
+![Terra Explorer Logo]([link_to_logo.png](https://terraexplorer.ideahubbd.com/images/favicon.png))
 
 *Live Site:* [Terra Explorer](https://terraexplorer.ideahubbd.com/)
 
