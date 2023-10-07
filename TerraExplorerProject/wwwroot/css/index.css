@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: darkgray;
+    background-color: #f1c50e;
 }
 
 .logo {
@@ -33,4 +33,48 @@ ul {
 #navbar {
     display: none;
     border-bottom: 2px solid black;
+}
+#section-scopes {
+    text-align: center;
+}
+
+    #section-scopes h1, #section-scopes h3 {
+        font-weight: bold;
+    }
+.scopes-card {
+    width: 100%;
+    background-color: white;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-top: 20px;
+    height: 225px;
+}
+.scopes-card-body {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    padding: 40px 0;
+    font-size: x-large;
+}
+.scopes-card-body img{
+    width: 50%;
+}
+/*.scopes-card img{
+    width: 10%;
+}*/
+
+#ancientm {
+    background-image: url('../images/ancientmysteries.png');
+    height: 500px;
+    margin: 30px -93px;
+}
+#secupdates {
+    background-image: url('../images/updates.png');
+    height: 720px;
+    margin: 30px -93px;
+}
+#contactform {
+    background-image: url('../images/contactform.png');
+    height: 600px;
+    margin: 30px -93px;
 }

@@ -23,26 +23,27 @@ namespace TerraExplorerProject.Controllers
 
         public IActionResult Index()
         {
-            using (var httpClient = new HttpClient())
-            {
-                try
-                {
-                    var apiUrl = baseURL + "geology&media_type=image";
-                    var response = httpClient.GetStringAsync(apiUrl).Result;
-                    var nasaImageData = JsonConvert.DeserializeObject<NasaImageDataModel>(response);
+            //using (var httpClient = new HttpClient())
+            //{
+            //    try
+            //    {
+            //        var apiUrl = baseURL + "geology&media_type=image";
+            //        var response = httpClient.GetStringAsync(apiUrl).Result;
+            //        var nasaImageData = JsonConvert.DeserializeObject<NasaImageDataModel>(response);
 
-                    return View(nasaImageData);
-                }
-                catch (Exception ex)
-                {
-                    // Log or handle the exception appropriately
-                    Console.WriteLine(ex.Message);
-                    throw; // Rethrow the exception to indicate an error
-                }
+            //        return View(nasaImageData);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        // Log or handle the exception appropriately
+            //        Console.WriteLine(ex.Message);
+            //        throw; // Rethrow the exception to indicate an error
+            //    }
 
-                //NasaImageDataModel nasaImageData = new NasaImageDataModel();
-                //return View(nasaImageData);
-            }
+            //    //NasaImageDataModel nasaImageData = new NasaImageDataModel();
+            //    //return View(nasaImageData);
+            //}
+            return View();
 
         }
 
