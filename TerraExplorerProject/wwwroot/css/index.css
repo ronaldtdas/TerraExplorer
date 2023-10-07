@@ -77,5 +77,5 @@ ul {
     background-image: url('../images/contactform.png');
     height: 600px;
     margin: 30px auto;
-    background-repeat-x: no-repeat;
+    background-repeat: no-repeat;
 }
